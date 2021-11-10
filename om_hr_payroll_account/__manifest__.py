@@ -21,4 +21,5 @@
     'test': ['../account/test/account_minimal_test.xml'],
     'images': ['static/description/banner.png'],
     'application': True,
+    'license': 'LGPL-3',
 }

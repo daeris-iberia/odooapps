@@ -35,4 +35,5 @@
     ],
     'images': ['static/description/banner.png'],
     'application': True,
+    'license': 'LGPL-3',
 }
