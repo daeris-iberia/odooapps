@@ -1,8 +1,7 @@
-# -*- encoding: utf-8 -*-
-
+# -*- coding: utf-8 -*-
 {
     'name': 'Odoo 15 Account Bank Statement Import',
-    'version': '15.0.1.0.0',
+    'version': '15.0.2.0.0',
     'category': 'Accounting',
     'depends': ['account'],
     'website': 'https://www.odoomates.tech',
@@ -10,14 +9,13 @@
     'support': 'odoomates@gmail.com',
     'maintainer': 'Odoo Mates',
     'license': 'LGPL-3',
-    'description': """Generic Wizard to Import Bank Statements In Odoo15 Community Edition.
-(This module does include any CSV and XLSX type import format.)""",
+    'description': """Generic Wizard to Import Bank Statements In Odoo15 Community Edition.This module does include any CSV and XLSX type import format.""",
     'data': [
         'security/ir.model.access.csv',
         'wizard/journal_creation.xml',
         'views/account_bank_statement_import_view.xml',
         'views/account_bank_statement_import_templates.xml',
-        'views/res_config_settings_views.xml',
+        #'views/res_config_settings_views.xml',
     ],
     'demo': [
         'demo/partner_bank.xml',
