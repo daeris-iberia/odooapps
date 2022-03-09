@@ -11,6 +11,7 @@ from odoo.exceptions import UserError, ValidationError
 class HrPayslip(models.Model):
     _name = 'hr.payslip'
     _description = 'Pay Slip'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _order = 'id desc'
 
     struct_id = fields.Many2one('hr.payroll.structure', string='Structure',
@@ -50,7 +51,7 @@ class HrPayslip(models.Model):
         string='Payslip Worked Days', copy=True, readonly=True,
         states={'draft': [('readonly', False)]})
     input_line_ids = fields.One2many('hr.payslip.input', 'payslip_id', string='Payslip Inputs',
-        readonly=True, states={'draft': [('readonly', False)]})
+        readonly=True, copy=True, states={'draft': [('readonly', False)]})
     paid = fields.Boolean(string='Made Payment Order ? ', readonly=True, copy=False,
         states={'draft': [('readonly', False)]})
     note = fields.Text(string='Internal Note', readonly=True, states={'draft': [('readonly', False)]})
@@ -118,7 +119,7 @@ class HrPayslip(models.Model):
         except ValueError:
             template_id = False
         try:
-            compose_form_id = ir_model_data.get_object_reference('mail', 'email_compose_message_wizard_form')[1]
+            compose_form_id = ir_model_data._xmlid_lookup('mail.email_compose_message_wizard_form')[2]
         except ValueError:
             compose_form_id = False
         ctx = {
@@ -174,6 +175,8 @@ class HrPayslip(models.Model):
             # if we don't give the contract, then the rules to apply should be for all current contracts of the employee
             contract_ids = payslip.contract_id.ids or \
                 self.get_contract(payslip.employee_id, payslip.date_from, payslip.date_to)
+            if not contract_ids:
+                raise ValidationError(_("No running contract found for the employee: %s or no contract in the given period" % payslip.employee_id.name))
             lines = [(0, 0, line) for line in self._get_payslip_lines(contract_ids, payslip.id)]
             payslip.write({'line_ids': lines, 'number': number})
         return True
@@ -200,22 +203,27 @@ class HrPayslip(models.Model):
                 current_leave_struct = leaves.setdefault(holiday.holiday_status_id, {
                     'name': holiday.holiday_status_id.name or _('Global Leaves'),
                     'sequence': 5,
-                    'code': holiday.holiday_status_id.name or 'GLOBAL',
+                    'code': holiday.holiday_status_id.code or 'GLOBAL',
                     'number_of_days': 0.0,
                     'number_of_hours': 0.0,
                     'contract_id': contract.id,
                 })
-                current_leave_struct['number_of_hours'] += hours
+                current_leave_struct['number_of_hours'] -= hours
                 work_hours = calendar.get_work_hours_count(
                     tz.localize(datetime.combine(day, time.min)),
                     tz.localize(datetime.combine(day, time.max)),
                     compute_leaves=False,
                 )
                 if work_hours:
-                    current_leave_struct['number_of_days'] += hours / work_hours
+                    current_leave_struct['number_of_days'] -= hours / work_hours
 
             # compute worked days
-            work_data = contract.employee_id._get_work_days_data(day_from, day_to, calendar=contract.resource_calendar_id)
+            work_data = contract.employee_id._get_work_days_data(
+                day_from,
+                day_to,
+                calendar=contract.resource_calendar_id,
+                compute_leaves=False,
+            )
             attendances = {
                 'name': _("Normal Working Days paid at 100%"),
                 'sequence': 1,
