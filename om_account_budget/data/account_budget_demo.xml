@@ -4,7 +4,7 @@
     <data noupdate="1">
 
         <record id="crossovered_budget_budgetoptimistic0" model="crossovered.budget">
-            <field eval="'Budget '+str(datetime.now().year+1)+': Optimistic'" name="name"/>
+            <field eval="'Presupuesto '+str(datetime.now().year+1)+': Optimista'" name="name"/>
             <field eval="str(datetime.now().year+1)+'-01-01'" name="date_from"/>
             <field eval="&quot;&quot;&quot;draft&quot;&quot;&quot;" name="state"/>
             <field eval="str(datetime.now().year+1)+'-12-31'" name="date_to"/>
@@ -117,7 +117,7 @@
 
         <!-- pessimistic-->
         <record id="crossovered_budget_budgetpessimistic0" model="crossovered.budget">
-            <field eval="'Budget '+str(datetime.now().year+1)+': Pessimistic'" name="name"/>
+            <field eval="'Presupuesto '+str(datetime.now().year+1)+': Pesimista'" name="name"/>
             <field eval="str(datetime.now().year+1)+'-01-01'" name="date_from"/>
             <field eval="&quot;&quot;&quot;draft&quot;&quot;&quot;" name="state"/>
             <field eval="str(datetime.now().year+1)+'-12-31'" name="date_to"/>
