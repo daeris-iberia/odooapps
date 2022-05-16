@@ -1,5 +1,15 @@
 ## Module <accounting_pdf_reports>
 
+#### 15.04.2022
+#### Version 15.0.8.0.0
+##### IMP
+- report filter
+
+#### 15.04.2022
+#### Version 15.0.7.6.0
+##### IMP
+- turkish translation
+
 #### 11.04.2022
 #### Version 15.0.7.5.0
 ##### IMP

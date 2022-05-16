@@ -2,7 +2,7 @@
 
 {
     'name': 'Odoo 15 Accounting Financial Reports',
-    'version': '15.0.7.5.0',
+    'version': '15.0.8.0.0',
     'category': 'Invoicing Management',
     'description': 'Accounting Reports For Odoo 15, Accounting Financial Reports, '
                    'Odoo 15 Financial Reports',
@@ -13,9 +13,9 @@
     'company': 'Odoo Mates',
     'maintainer': 'Odoo Mates',
     'support': 'odoomates@gmail.com',
-    'website': 'https://www.youtube.com/watch?v=sLetAnqo9m8',
+    'website': 'https://www.youtube.com/watch?v=yA4NLwOLZms',
     'depends': ['account'],
-    'live_test_url': 'https://www.youtube.com/watch?v=Qu6R3yNKR60',
+    'live_test_url': 'https://www.youtube.com/watch?v=yA4NLwOLZms',
     'data': [
         'security/ir.model.access.csv',
         'views/menu.xml',
