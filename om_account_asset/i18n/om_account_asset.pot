@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-09 15:25+0000\n"
-"PO-Revision-Date: 2021-11-09 15:25+0000\n"
+"POT-Creation-Date: 2022-09-14 17:26+0000\n"
+"PO-Revision-Date: 2022-09-14 17:26+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -209,6 +209,9 @@ msgstr ""
 
 #. module: om_account_asset
 #: model:ir.actions.act_window,name:om_account_asset.action_account_asset_asset_form
+#: model:ir.model.fields,field_description:om_account_asset.field_account_bank_statement_line__asset_ids
+#: model:ir.model.fields,field_description:om_account_asset.field_account_move__asset_ids
+#: model:ir.model.fields,field_description:om_account_asset.field_account_payment__asset_ids
 #: model:ir.ui.menu,name:om_account_asset.menu_action_account_asset_asset_form
 #: model:ir.ui.menu,name:om_account_asset.menu_action_asset_asset_report
 #: model_terms:ir.ui.view,arch_db:om_account_asset.view_account_asset_asset_purchase_tree
@@ -405,6 +408,7 @@ msgstr ""
 #. module: om_account_asset
 #: code:addons/om_account_asset/models/account_asset.py:0
 #: model:ir.model.fields,field_description:om_account_asset.field_account_asset_asset__currency_id
+#: model:ir.model.fields,field_description:om_account_asset.field_account_asset_depreciation_line__currency_id
 #, python-format
 msgid "Currency"
 msgstr ""
@@ -1091,13 +1095,21 @@ msgid "The amount of time between two depreciations, in months"
 msgstr ""
 
 #. module: om_account_asset
+#: code:addons/om_account_asset/wizard/asset_modify.py:0
+#, python-format
+msgid ""
+"The number of depreciations must be greater than the number of posted or "
+"draft entries to allow for complete depreciation of the asset."
+msgstr ""
+
+#. module: om_account_asset
 #: model:ir.model.fields,help:om_account_asset.field_account_asset_asset__method_number
 #: model:ir.model.fields,help:om_account_asset.field_account_asset_category__method_number
 msgid "The number of depreciations needed to depreciate your asset"
 msgstr ""
 
 #. module: om_account_asset
-#: code:addons/om_account_asset/models/account_invoice.py:0
+#: code:addons/om_account_asset/models/account_move.py:0
 #, python-format
 msgid ""
 "The number of depreciations or the period length of your asset category "
@@ -1184,6 +1196,13 @@ msgid "Vendor"
 msgstr ""
 
 #. module: om_account_asset
+#: code:addons/om_account_asset/models/account_move.py:0
+#: code:addons/om_account_asset/models/account_move.py:0
+#, python-format
+msgid "Vendor bill cancelled."
+msgstr ""
+
+#. module: om_account_asset
 #: model:ir.model.fields,field_description:om_account_asset.field_account_asset_asset__website_message_ids
 msgid "Website Messages"
 msgstr ""
@@ -1229,6 +1248,12 @@ msgstr ""
 #: code:addons/om_account_asset/models/account_asset.py:0
 #, python-format
 msgid "You cannot delete posted installment lines."
+msgstr ""
+
+#. module: om_account_asset
+#: code:addons/om_account_asset/models/account_move.py:0
+#, python-format
+msgid "You cannot reset to draft for an entry having a posted asset"
 msgstr ""
 
 #. module: om_account_asset

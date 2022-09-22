@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-09 15:23+0000\n"
-"PO-Revision-Date: 2021-11-09 15:23+0000\n"
+"POT-Creation-Date: 2022-09-14 17:22+0000\n"
+"PO-Revision-Date: 2022-09-14 17:22+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -28,6 +28,12 @@ msgstr ""
 #. module: accounting_pdf_reports
 #: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.report_agedpartnerbalance
 msgid "<span>Not due</span>"
+msgstr ""
+
+#. module: accounting_pdf_reports
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.report_trialbalance
+msgid "<strong>Analytic Accounts:</strong>"
 msgstr ""
 
 #. module: accounting_pdf_reports
@@ -77,6 +83,7 @@ msgstr ""
 
 #. module: accounting_pdf_reports
 #: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.report_general_ledger
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.report_trialbalance
 msgid "<strong>Journals:</strong>"
 msgstr ""
 
@@ -156,7 +163,6 @@ msgstr ""
 
 #. module: accounting_pdf_reports
 #: model:ir.model,name:accounting_pdf_reports.model_account_financial_report
-#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_financial_report__children_ids
 #: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.view_account_financial_report_form
 #: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.view_account_financial_report_search
 #: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.view_account_financial_report_tree
@@ -190,7 +196,10 @@ msgid "Accounting Report"
 msgstr ""
 
 #. module: accounting_pdf_reports
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_balance_report__account_ids
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_common_account_report__account_ids
 #: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_financial_report__account_ids
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_report_general_ledger__account_ids
 #: model:ir.model.fields.selection,name:accounting_pdf_reports.selection__account_financial_report__type__accounts
 msgid "Accounts"
 msgstr ""
@@ -260,8 +269,16 @@ msgid "All accounts'"
 msgstr ""
 
 #. module: accounting_pdf_reports
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.report_general_ledger
 #: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.report_journal_entries
 msgid "Analytic Account"
+msgstr ""
+
+#. module: accounting_pdf_reports
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_balance_report__analytic_account_ids
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_common_account_report__analytic_account_ids
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_report_general_ledger__analytic_account_ids
+msgid "Analytic Accounts"
 msgstr ""
 
 #. module: accounting_pdf_reports
@@ -301,7 +318,18 @@ msgstr ""
 
 #. module: accounting_pdf_reports
 #: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.account_aged_balance_view
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.accounting_tax_report_view
 msgid "Cancel"
+msgstr ""
+
+#. module: accounting_pdf_reports
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_financial_report__children_ids
+msgid "Children"
+msgstr ""
+
+#. module: accounting_pdf_reports
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.view_account_financial_report_form
+msgid "Childrens"
 msgstr ""
 
 #. module: accounting_pdf_reports
@@ -389,6 +417,18 @@ msgid "Date"
 msgstr ""
 
 #. module: accounting_pdf_reports
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_tax_report_wizard__date_from
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_accounting_report__date_from_cmp
+msgid "Date From"
+msgstr ""
+
+#. module: accounting_pdf_reports
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_tax_report_wizard__date_to
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_accounting_report__date_to_cmp
+msgid "Date To"
+msgstr ""
+
+#. module: accounting_pdf_reports
 #: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.report_journal_entries
 msgid "Date:"
 msgstr ""
@@ -450,6 +490,16 @@ msgid "Display details"
 msgstr ""
 
 #. module: accounting_pdf_reports
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.res_config_settings_view_form
+msgid "Drill Down Reports"
+msgstr ""
+
+#. module: accounting_pdf_reports
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.res_config_settings_view_form
+msgid "Dynamic Accounting Reports"
+msgstr ""
+
+#. module: accounting_pdf_reports
 #: model:ir.model.fields,field_description:accounting_pdf_reports.field_accounting_report__enable_filter
 msgid "Enable Comparison"
 msgstr ""
@@ -462,10 +512,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_print_journal__date_to
 #: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_report_general_ledger__date_to
 #: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_report_partner_ledger__date_to
-#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_tax_report_wizard__date_to
 #: model:ir.model.fields,field_description:accounting_pdf_reports.field_accounting_report__date_to
-#: model:ir.model.fields,field_description:accounting_pdf_reports.field_accounting_report__date_to_cmp
 msgid "End Date"
+msgstr ""
+
+#. module: accounting_pdf_reports
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.res_config_settings_view_form
+msgid "Enhanced Financial Reports"
 msgstr ""
 
 #. module: accounting_pdf_reports
@@ -476,6 +529,11 @@ msgstr ""
 #. module: accounting_pdf_reports
 #: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.report_general_ledger
 msgid "Entry Label"
+msgstr ""
+
+#. module: accounting_pdf_reports
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.res_config_settings_view_form
+msgid "Excel Reports"
 msgstr ""
 
 #. module: accounting_pdf_reports
@@ -507,6 +565,11 @@ msgid "Financial Reports"
 msgstr ""
 
 #. module: accounting_pdf_reports
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.res_config_settings_view_form
+msgid "Financial Reports in Excel"
+msgstr ""
+
+#. module: accounting_pdf_reports
 #: model:ir.model.fields,help:accounting_pdf_reports.field_account_financial_report__sign
 msgid ""
 "For accounts that are typically more debited than credited and that you "
@@ -517,13 +580,13 @@ msgid ""
 msgstr ""
 
 #. module: accounting_pdf_reports
-#: code:addons/accounting_pdf_reports/reports/report_aged_partner.py:0
-#: code:addons/accounting_pdf_reports/reports/report_financial.py:0
-#: code:addons/accounting_pdf_reports/reports/report_general_ledger.py:0
-#: code:addons/accounting_pdf_reports/reports/report_journal.py:0
-#: code:addons/accounting_pdf_reports/reports/report_partner_ledger.py:0
-#: code:addons/accounting_pdf_reports/reports/report_tax.py:0
-#: code:addons/accounting_pdf_reports/reports/report_trial_balance.py:0
+#: code:addons/accounting_pdf_reports/report/report_aged_partner.py:0
+#: code:addons/accounting_pdf_reports/report/report_financial.py:0
+#: code:addons/accounting_pdf_reports/report/report_general_ledger.py:0
+#: code:addons/accounting_pdf_reports/report/report_journal.py:0
+#: code:addons/accounting_pdf_reports/report/report_partner_ledger.py:0
+#: code:addons/accounting_pdf_reports/report/report_tax.py:0
+#: code:addons/accounting_pdf_reports/report/report_trial_balance.py:0
 #, python-format
 msgid "Form content is missing, this report cannot be printed."
 msgstr ""
@@ -795,6 +858,12 @@ msgid "Partner:"
 msgstr ""
 
 #. module: accounting_pdf_reports
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_aged_trial_balance__partner_ids
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_balance_report__partner_ids
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_common_account_report__partner_ids
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_common_partner_report__partner_ids
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_report_general_ledger__partner_ids
+#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_report_partner_ledger__partner_ids
 #: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.report_agedpartnerbalance
 msgid "Partners"
 msgstr ""
@@ -818,7 +887,13 @@ msgid "Preserve balance sign"
 msgstr ""
 
 #. module: accounting_pdf_reports
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.res_config_settings_view_form
+msgid "Preview financial reports without downloading"
+msgstr ""
+
+#. module: accounting_pdf_reports
 #: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.account_aged_balance_view
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.accounting_tax_report_view
 msgid "Print"
 msgstr ""
 
@@ -885,6 +960,7 @@ msgstr ""
 
 #. module: accounting_pdf_reports
 #: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.account_aged_balance_view
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.accounting_tax_report_view
 msgid "Report Options"
 msgstr ""
 
@@ -897,6 +973,11 @@ msgstr ""
 #: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_financial_report__account_report_id
 #: model:ir.model.fields.selection,name:accounting_pdf_reports.selection__account_financial_report__type__account_report
 msgid "Report Value"
+msgstr ""
+
+#. module: accounting_pdf_reports
+#: model_terms:ir.ui.view,arch_db:accounting_pdf_reports.view_account_financial_report_search
+msgid "Reports"
 msgstr ""
 
 #. module: accounting_pdf_reports
@@ -937,9 +1018,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_print_journal__date_from
 #: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_report_general_ledger__date_from
 #: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_report_partner_ledger__date_from
-#: model:ir.model.fields,field_description:accounting_pdf_reports.field_account_tax_report_wizard__date_from
 #: model:ir.model.fields,field_description:accounting_pdf_reports.field_accounting_report__date_from
-#: model:ir.model.fields,field_description:accounting_pdf_reports.field_accounting_report__date_from_cmp
 msgid "Start Date"
 msgstr ""
 
@@ -1034,7 +1113,7 @@ msgid "Type"
 msgstr ""
 
 #. module: accounting_pdf_reports
-#: code:addons/accounting_pdf_reports/reports/report_aged_partner.py:0
+#: code:addons/accounting_pdf_reports/report/report_aged_partner.py:0
 #, python-format
 msgid "Unknown Partner"
 msgstr ""
@@ -1081,19 +1160,19 @@ msgid ""
 msgstr ""
 
 #. module: accounting_pdf_reports
-#: code:addons/accounting_pdf_reports/wizards/account_general_ledger.py:0
+#: code:addons/accounting_pdf_reports/wizard/account_general_ledger.py:0
 #, python-format
 msgid "You must define a Start Date"
 msgstr ""
 
 #. module: accounting_pdf_reports
-#: code:addons/accounting_pdf_reports/wizards/aged_partner.py:0
+#: code:addons/accounting_pdf_reports/wizard/aged_partner.py:0
 #, python-format
 msgid "You must set a period length greater than 0."
 msgstr ""
 
 #. module: accounting_pdf_reports
-#: code:addons/accounting_pdf_reports/wizards/aged_partner.py:0
+#: code:addons/accounting_pdf_reports/wizard/aged_partner.py:0
 #, python-format
 msgid "You must set a start date."
 msgstr ""
